@@ -8,48 +8,47 @@ The Mediator pattern defines an object that encapsulates how a set of objects in
 
 ## Class Diagram
 
-Below is a class diagram representing the structure of the Mediator Design Pattern:
+Below is a class diagram representing the structure of the Mediator Design Pattern in this project:
 
 ```mermaid
 classDiagram
     class Mediator {
         <<interface>>
-        +notify(sender, event)
+        +press()
     }
 
-    class ConcreteMediator {
-        -ComponentA componentA
-        -ComponentB componentB
-        +notify(sender, event)
+    class FanMediator {
+        -Button button
+        -Fan fan
+        +FanMediator(Button, Fan)
+        +press()
     }
 
-    class Component {
-        #mediator: Mediator
-        +setMediator(mediator)
+    class Button {
+        -Mediator mediator
+        +setMediator(Mediator)
+        +press()
     }
 
-    class ComponentA {
-        +operationA()
+    class Fan {
+        -boolean isOn
+        +turnOn()
+        +turnOff()
+        +isOn() boolean
     }
 
-    class ComponentB {
-        +operationB()
-    }
-
-    Mediator <|.. ConcreteMediator
-    Component <|-- ComponentA
-    Component <|-- ComponentB
-    Component --> Mediator
-    ConcreteMediator --> ComponentA
-    ConcreteMediator --> ComponentB
+    Mediator <|.. FanMediator
+    Button --> Mediator
+    FanMediator --> Button
+    FanMediator --> Fan
 ```
 
 ## Components
 
-- **Mediator Interface**: Defines the communication interface between components.
-- **Concrete Mediator**: Implements the Mediator interface and coordinates between components.
-- **Component**: Base class for objects that communicate through the mediator.
-- **Concrete Components**: Specific components that interact with each other through the mediator.
+- **Mediator Interface**: Defines the method `press()` that concrete mediators must implement.
+- **FanMediator**: Implements the `Mediator` interface and coordinates the interaction between the `Button` and the `Fan`.
+- **Button**: Represents a UI button component that interacts with a `Mediator`. It can set a mediator and simulate a button press action.
+- **Fan**: Represents a fan with basic operations to turn it on or off. It maintains an internal state to track whether the fan is on or off.
 
 ## Benefits
 
@@ -58,24 +57,3 @@ classDiagram
 3. **Simplifies object protocols** by replacing many-to-many interactions with one-to-many
 4. Makes it **easier to reuse components** independently
 
-## Real-World Examples
-
-- Air traffic control system where the control tower (mediator) manages communication between planes
-- Chat applications where a server (mediator) manages message delivery between users
-- GUI frameworks where event handlers (mediators) manage interactions between UI components
-
-## Implementation Considerations
-
-When implementing the Mediator pattern:
-- Define a clear interface for the mediator
-- Consider using events or observer pattern for notification
-- Be careful not to create a "god object" mediator that knows too much
-
-## When to Use
-
-Use the Mediator pattern when:
-- A set of objects communicate in well-defined but complex ways
-- Reusing objects is difficult because they refer to many other objects
-- You want to customize behavior distributed between several classes without creating subclasses
-
-This pattern is particularly useful in complex UI interactions, workflow systems, and any scenario where multiple objects need to coordinate their behavior.
