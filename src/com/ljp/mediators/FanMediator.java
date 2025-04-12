@@ -1,7 +1,7 @@
-package mediator;
+package com.ljp.mediators;
 
-import colleagues.Button;
-import colleagues.Fan;
+import com.ljp.colleagues.Button;
+import com.ljp.colleagues.Fan;
 
 
 

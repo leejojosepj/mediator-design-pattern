@@ -1,4 +1,4 @@
-package colleagues;
+package com.ljp.colleagues;
 /**
  * Represents a Fan with basic operations to turn it on or off.
  *

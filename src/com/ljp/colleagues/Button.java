@@ -1,6 +1,6 @@
-package colleagues;
+package com.ljp.colleagues;
 
-import mediator.Mediator;
+import com.ljp.mediators.Mediator;
 
 /**
  * The {@code Button} class represents a UI button component that interacts with a {@link Mediator}.

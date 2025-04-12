@@ -1,7 +1,6 @@
-import colleagues.Button;
-import colleagues.Fan;
-import mediator.FanMediator;
-import mediator.Mediator;
+import com.ljp.colleagues.Button;
+import com.ljp.colleagues.Fan;
+import com.ljp.mediators.FanMediator;
 
 public class MediatorDemoMain {
     public static void main(String[] args) {
