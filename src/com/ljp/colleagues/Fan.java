@@ -6,13 +6,15 @@ package com.ljp.colleagues;
  * check if it is currently on. It maintains an internal state to
  * track whether the fan is on or off.
  */
-public class Fan {
+public class Fan implements Appliance{
     private boolean isOn = false;
 
     /**
      * Turns the fan on by setting its internal state to true and
      * prints a message indicating the fan is now on.
-     */public void turnOn() {
+     */
+    @Override
+    public void turnOn() {
         isOn = true;
         System.out.println("Fan is ON");
     }
@@ -20,7 +22,9 @@ public class Fan {
     /**
      * Turns the fan off by setting its internal state to false and
      * prints a message indicating the fan is now off.
-     */public void turnOff() {
+     */
+    @Override
+    public void turnOff() {
         isOn = false;
         System.out.println("Fan is OFF");
     }
@@ -29,7 +33,9 @@ public class Fan {
      * Checks if the fan is currently on.
      *
      * @return true if the fan is on, false otherwise.
-     */public boolean isOn() {
+     */
+    @Override
+    public boolean isOn() {
         return isOn;
     }
 }
