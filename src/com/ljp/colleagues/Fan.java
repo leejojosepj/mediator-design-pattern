@@ -1,12 +1,13 @@
 package com.ljp.colleagues;
+
 /**
  * Represents a Fan with basic operations to turn it on or off.
- *
+ * <p>
  * This class provides methods to control the state of the fan and
  * check if it is currently on. It maintains an internal state to
  * track whether the fan is on or off.
  */
-public class Fan implements Appliance{
+public class Fan implements Appliance {
     private boolean isOn = false;
 
     /**
